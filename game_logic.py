@@ -6,8 +6,8 @@ health = HealthManager()
 
 def start_game():
     print(intro_story())
-    game_active = True
-    while game_active:
+    
+    while True:  # Keep the game loop running until manually exited.
         print("What will you do next?")
         print("1. Prepare the ship for launch")
         print("2. Review mission details")
@@ -16,12 +16,14 @@ def start_game():
         
         if choice == '1':
             prepare_ship()
-            game_active = False
+            break
         elif choice == '2':
             review_mission()
-            game_active = False 
+            break
         else:
             print("Invalid choice. Please select again.")
+
+    final_challenge()
 
 def prepare_ship():
     print(prepare_ship_story())
