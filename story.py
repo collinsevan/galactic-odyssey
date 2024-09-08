@@ -1,5 +1,4 @@
 def intro_story():
-    # Return introduction story
     return """
     You are the captain of the spaceship *Starfire*, assigned to deliver critical supplies
     to the colony on Titan V. Your journey through deep space will be fraught with danger.
@@ -18,9 +17,20 @@ def review_mission_story():
     and no errors can be tolerated if the mission is to succeed. Your careful review ensures that all systems are operational.
     """
 
+def system_check_story():
+    return """
+    You proceed to a full system diagnostic to ensure everything is in top shape before departure. The diagnostics reveal
+    some minor issues which could become serious if left unattended. It's crucial to address these now.
+    """
+
+def crew_briefing_story():
+    return """
+    It's time to brief your crew about the upcoming mission. Their readiness and morale are crucial for success.
+    You gather the crew in the main hall to discuss the mission's challenges and ensure everyone is on the same page.
+    """
+
 def final_challenge_story():
     return """
     Approaching Titan V, you are alerted to a field of asteroids directly in your path. Successful navigation requires
     skill and nerve. This is the final test of your readiness for the mission's challenges.
     """
-
