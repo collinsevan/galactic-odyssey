@@ -16,4 +16,4 @@ def print_welcome_message():
 if __name__ == "__main__":
     # Start the game
     print_welcome_message()
-
+    start_game()
