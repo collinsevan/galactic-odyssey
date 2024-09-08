@@ -1,4 +1,5 @@
 import os
+from game_logic import start_game
 
 def clear_screen():
     # Clear terminal screen
