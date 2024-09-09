@@ -1,4 +1,4 @@
-from story import intro_story, prepare_ship_story, review_mission_story, equipment_malfunction_story, mid_journey_check_story, alien_encounter_story, resource_dilemma_story, unexpected_visitor_story, final_challenge_story
+from story import intro_story, prepare_ship_story, review_mission_story, final_challenge_story, mid_journey_check_story, critical_meltdown_story, advanced_medical_facility_story, alien_encounter_story, resource_dilemma_story, unexpected_visitor_story
 from health_manager import HealthManager
 
 health = HealthManager()  # Initialize health manager with 5 health points
