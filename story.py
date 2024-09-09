@@ -17,10 +17,28 @@ def review_mission_story():
     and no errors can be tolerated if the mission is to succeed. Your careful review ensures that all systems are operational.
     """
 
+def equipment_malfunction_story():
+    return """
+    Just as you settle into the journey, a critical alert sounds. The life support system has malfunctioned,
+    threatening the air supply. Immediate action is required to ensure the safety of everyone aboard.
+    """
+
 def mid_journey_check_story():
     return """
     Midway through your journey, the ship's sensors detect abnormal space weather conditions that could jeopardize your navigation systems.
     Your action here is crucial to maintain your course.
+    """
+
+def alien_encounter_story():
+    return """
+    Out of the darkness, an unidentified alien spacecraft approaches. Their intentions are unclear, and you must decide
+    how to respond without provoking a conflict or missing a potential ally in the vastness of space.
+    """
+
+def resource_dilemma_story():
+    return """
+    Resources are running lower than expected due to earlier mishaps. You must now decide whether to ration supplies,
+    potentially affecting crew morale and mission success. Choose wisely to balance immediate needs with long-term survival.
     """
 
 def unexpected_visitor_story():
