@@ -34,43 +34,49 @@ def review_mission():
     mid_journey_check()
 
 def mid_journey_check():
-    print(mid_journey_check_story())
-    print("1. Adjust shields to maximum")
-    print("2. Ignore and continue on current course")
-    print("3. Reroute to avoid the anomaly")
-    
-    choice = input("What's your command? (1, 2, or 3): ")
-    if choice == '1':
-        print("Shields enhanced, energy consumption increases but you're safer.")
-        health.reduce_health(1)
-    elif choice == '2':
-        print("You take a risky gamble hoping the sensors are overreacting.")
-    elif choice == '3':
-        print("Course adjusted, this will add time but you avoid potential hazards.")
-    else:
-        print("Invalid choice. Please select again.")
-        mid_journey_check()
-    
+    while True:  # Ensures user makes a valid choice
+        print(mid_journey_check_story())
+        print("1. Adjust shields to maximum")
+        print("2. Ignore and continue on current course")
+        print("3. Reroute to avoid the anomaly")
+        
+        choice = input("What's your command? (1, 2, or 3): ")
+        if choice == '1':
+            print("Shields enhanced, energy consumption increases but you're safer.")
+            health.reduce_health(1)
+            break  # Breaks loop after valid input
+        elif choice == '2':
+            print("You take a risky gamble hoping the sensors are overreacting.")
+            break
+        elif choice == '3':
+            print("Course adjusted, this will add time but you avoid potential hazards.")
+            break
+        else:
+            print("Invalid choice. Please select again.")
+
     unexpected_visitor()
 
 def unexpected_visitor():
-    print(unexpected_visitor_story())
-    print("1. Attempt to help the adrift vessel")
-    print("2. Preserve resources and ignore the signal")
-    print("3. Contact your command for instructions")
-    
-    choice = input("How do you respond? (1, 2, or 3): ")
-    if choice == '1':
-        print("You decide to help, using up resources but gaining potential allies.")
-        health.reduce_health(2)
-    elif choice == '2':
-        print("You focus on your mission, ignoring the signal.")
-    elif choice == '3':
-        print("You wait for further instructions, delaying your mission slightly.")
-    else:
-        print("Invalid choice. Please select again.")
-        unexpected_visitor()
-    
+    while True:
+        print(unexpected_visitor_story())
+        print("1. Attempt to help the adrift vessel")
+        print("2. Preserve resources and ignore the signal")
+        print("3. Contact your command for instructions")
+        
+        choice = input("How do you respond? (1, 2, or 3): ")
+        if choice == '1':
+            print("You decide to help, using up resources but gaining potential allies.")
+            health.reduce_health(2)
+            break
+        elif choice == '2':
+            print("You focus on your mission, ignoring the signal.")
+            break
+        elif choice == '3':
+            print("You wait for further instructions, delaying your mission slightly.")
+            break
+        else:
+            print("Invalid choice. Please select again.")
+
     final_challenge()
 
 def final_challenge():
