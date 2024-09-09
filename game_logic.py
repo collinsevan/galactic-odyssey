@@ -1,4 +1,4 @@
-from story import intro_story, prepare_ship_story, review_mission_story, final_challenge_story, system_check_story, crew_briefing_story
+from story import intro_story, prepare_ship_story, review_mission_story, final_challenge_story, mid_journey_check_story, unexpected_visitor_story
 from health_manager import HealthManager
 
 # Initialize health manager with 5 health points
@@ -27,49 +27,49 @@ def prepare_ship():
     print(prepare_ship_story())
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
-    system_check()
+    mid_journey_check()
 
 def review_mission():
     print(review_mission_story())
-    system_check()
+    mid_journey_check()
 
-def system_check():
-    print(system_check_story())
-    print("1. Check engine status")
-    print("2. Inspect cargo hold")
-    print("3. Test communication systems")
+def mid_journey_check():
+    print(mid_journey_check_story())
+    print("1. Adjust shields to maximum")
+    print("2. Ignore and continue on current course")
+    print("3. Reroute to avoid the anomaly")
     
-    choice = input("Make your choice (1, 2, or 3): ")
-    
+    choice = input("What's your command? (1, 2, or 3): ")
     if choice == '1':
-        print("Engine status is optimal.")
+        print("Shields enhanced, energy consumption increases but you're safer.")
+        health.reduce_health(1)
     elif choice == '2':
-        print("Cargo hold is secure.")
+        print("You take a risky gamble hoping the sensors are overreacting.")
     elif choice == '3':
-        print("Communication systems are functional.")
+        print("Course adjusted, this will add time but you avoid potential hazards.")
     else:
         print("Invalid choice. Please select again.")
-        system_check()
+        mid_journey_check()
     
-    crew_briefing()
+    unexpected_visitor()
 
-def crew_briefing():
-    print(crew_briefing_story())
-    print("1. Motivate the crew")
-    print("2. Discuss potential risks")
-    print("3. Outline mission objectives")
+def unexpected_visitor():
+    print(unexpected_visitor_story())
+    print("1. Attempt to help the adrift vessel")
+    print("2. Preserve resources and ignore the signal")
+    print("3. Contact your command for instructions")
     
-    choice = input("How will you brief your crew? (1, 2, or 3): ")
-    
+    choice = input("How do you respond? (1, 2, or 3): ")
     if choice == '1':
-        print("The crew feels motivated and ready.")
+        print("You decide to help, using up resources but gaining potential allies.")
+        health.reduce_health(2)
     elif choice == '2':
-        print("The crew is now aware of potential risks.")
+        print("You focus on your mission, ignoring the signal.")
     elif choice == '3':
-        print("Mission objectives are clear to everyone.")
+        print("You wait for further instructions, delaying your mission slightly.")
     else:
         print("Invalid choice. Please select again.")
-        crew_briefing()
+        unexpected_visitor()
     
     final_challenge()
 

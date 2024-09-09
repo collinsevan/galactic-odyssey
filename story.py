@@ -17,16 +17,16 @@ def review_mission_story():
     and no errors can be tolerated if the mission is to succeed. Your careful review ensures that all systems are operational.
     """
 
-def system_check_story():
+def mid_journey_check_story():
     return """
-    You proceed to a full system diagnostic to ensure everything is in top shape before departure. The diagnostics reveal
-    some minor issues which could become serious if left unattended. It's crucial to address these now.
+    Midway through your journey, the ship's sensors detect abnormal space weather conditions that could jeopardize your navigation systems.
+    Your action here is crucial to maintain your course.
     """
 
-def crew_briefing_story():
+def unexpected_visitor_story():
     return """
-    It's time to brief your crew about the upcoming mission. Their readiness and morale are crucial for success.
-    You gather the crew in the main hall to discuss the mission's challenges and ensure everyone is on the same page.
+    As you approach the outer sectors of Titan V, an unidentified distress signal is picked up. It's coming from a vessel that appears to be adrift.
+    How you handle this could significantly affect your mission's resources and moral code.
     """
 
 def final_challenge_story():
