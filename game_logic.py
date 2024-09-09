@@ -12,7 +12,8 @@ from story import (
     final_challenge_story
 )
 from health_manager import HealthManager
-health = HealthManager()  # Initialize health manager with 5 health points
+
+health = HealthManager()
 
 def start_game():
     print(intro_story())
@@ -85,38 +86,42 @@ def mid_journey_check():
 
 def critical_meltdown():
     print(critical_meltdown_story())
-    print("1. Attempt to stabilize the reactor")
-    print("2. Abandon the reactor and evacuate")
-    choice = input("What will you do? (1 or 2): ")
-    if choice == '1':
-        print("You manage to stabilize the reactor, but the ship's systems are severely compromised.")
-        health.reduce_health(3)
-        if health.get_health() <= 0:
-            end_game()
-            return
-    elif choice == '2':
-        print("Evacuation is successful, but your ship suffers irreversible damage.")
-        health.reduce_health(2)
-    else:
-        print("Invalid choice. Please select again.")
-        critical_meltdown()
+    while True:
+        print("1. Attempt to stabilize the reactor")
+        print("2. Abandon the reactor and evacuate")
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            print("You manage to stabilize the reactor, but the ship's systems are severely compromised.")
+            health.reduce_health(3)
+            if health.get_health() <= 0:
+                end_game()
+                return
+            break
+        elif choice == '2':
+            print("Evacuation is successful, but your ship suffers irreversible damage.")
+            health.reduce_health(2)
+            break
+        else:
+            print("Invalid choice. Please select again.")
     advanced_medical_facility()
 
 def advanced_medical_facility():
     print(advanced_medical_facility_story())
-    print("1. Integrate the health systems with your ship")
-    print("2. Leave the facility and continue the mission")
-    choice = input("What will you do? (1 or 2): ")
-    if choice == '1':
-        print("The integration is successful. Your ship's maximum health is increased and current health is fully restored.")
-        health.set_max_health(10)  # Assuming a new method to set max health
-        health.restore_health()
-    elif choice == '2':
-        print("You continue the mission without any enhancements.")
-    else:
-        print("Invalid choice. Please select again.")
-        advanced_medical_facility()
-    alien_encounter()    
+    while True:
+        print("1. Integrate the health systems with your ship")
+        print("2. Leave the facility and continue the mission")
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            print("The integration is successful. Your ship's maximum health is increased and current health is fully restored.")
+            health.set_max_health(10)  # Set new max health
+            health.restore_health()  # Restore health to full
+            break
+        elif choice == '2':
+            print("You continue the mission without any enhancements.")
+            break
+        else:
+            print("Invalid choice. Please select again.")
+    alien_encounter()
 
 def alien_encounter():
     print(alien_encounter_story())
@@ -158,7 +163,6 @@ def unexpected_visitor():
         print("1. Attempt to help the adrift vessel")
         print("2. Preserve resources and ignore the signal")
         print("3. Contact your command for instructions")
-
         choice = input("How do you respond? (1, 2, or 3): ")
         if choice == '1':
             print("You decide to help, using up resources but gaining potential allies.")
