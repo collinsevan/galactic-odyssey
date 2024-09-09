@@ -29,6 +29,16 @@ def mid_journey_check_story():
     Your action here is crucial to maintain your course.
     """
 
+def critical_meltdown_story():
+    return """
+    The ship's core reactor has become dangerously unstable. A meltdown seems imminent, threatening to end your mission — and everything else — abruptly.
+    """
+
+def advanced_medical_facility_story():
+    return """
+    You discover an abandoned outpost with advanced medical facilities. There is a chance to integrate their health systems with your ship, significantly boosting your capabilities.
+    """
+
 def alien_encounter_story():
     return """
     Out of the darkness, an unidentified alien spacecraft approaches. Their intentions are unclear, and you must decide
@@ -38,7 +48,7 @@ def alien_encounter_story():
 def resource_dilemma_story():
     return """
     Resources are running lower than expected due to earlier mishaps. You must now decide whether to ration supplies,
-    potentially affecting crew morale and mission success. Choose wisely to balance immediate needs with long-term survival.
+    potentially affecting the crew's morale and your mission's success.
     """
 
 def unexpected_visitor_story():
