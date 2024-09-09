@@ -9,5 +9,9 @@ class HealthManager:
             print("Your ship is too damaged to continue. Game Over.")
             exit()
 
+    def gain_health(self, amount):
+        self.health += amount  # Increase health by the specified amount
+        print(f"Health increased! Current health: {self.health}")
+
     def get_health(self):
         return self.health
