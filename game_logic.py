@@ -12,15 +12,22 @@ from story import (
     final_challenge_story
 )
 from health_manager import HealthManager
+import os
 
 health = HealthManager()
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def start_game():
+    clear_screen()
     print(intro_story())
+    input("Press Enter to continue...")
     initial_choice()
 
 def initial_choice():
     while True:
+        clear_screen()
         print("What will you do next?")
         print("1. Prepare the ship for launch")
         print("2. Review mission details")
@@ -35,16 +42,21 @@ def initial_choice():
             print("Invalid choice. Please select again.")
 
 def prepare_ship():
+    clear_screen()
     print(prepare_ship_story())
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
+    input("Press Enter to continue...")
     equipment_malfunction()
 
 def review_mission():
+    clear_screen()
     print(review_mission_story())
+    input("Press Enter to continue...")
     equipment_malfunction()
 
 def equipment_malfunction():
+    clear_screen()
     print(equipment_malfunction_story())
     while True:
         print("1. Repair the life support system using spare parts")
@@ -60,9 +72,11 @@ def equipment_malfunction():
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     mid_journey_check()
 
 def mid_journey_check():
+    clear_screen()
     print(mid_journey_check_story())
     while True:
         print("1. Adjust shields to maximum")
@@ -81,10 +95,11 @@ def mid_journey_check():
             break
         else:
             print("Invalid choice. Please select again.")
-
+    input("Press Enter to continue...")
     critical_meltdown()
 
 def critical_meltdown():
+    clear_screen()
     print(critical_meltdown_story())
     while True:
         print("1. Attempt to stabilize the reactor")
@@ -103,9 +118,11 @@ def critical_meltdown():
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     advanced_medical_facility()
 
 def advanced_medical_facility():
+    clear_screen()
     print(advanced_medical_facility_story())
     while True:
         print("1. Integrate the health systems with your ship")
@@ -113,17 +130,19 @@ def advanced_medical_facility():
         choice = input("What will you do? (1 or 2): ")
         if choice == '1':
             print("The integration is successful. Your ship's maximum health is increased and current health is fully restored.")
-            health.set_max_health(10)  # Set new max health
-            health.restore_health()  # Restore health to full
+            health.set_max_health(6)
+            health.restore_health()
             break
         elif choice == '2':
             print("You continue the mission without any enhancements.")
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     alien_encounter()
 
 def alien_encounter():
+    clear_screen()
     print(alien_encounter_story())
     while True:
         print("1. Communicate peacefully")
@@ -138,9 +157,11 @@ def alien_encounter():
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     resource_dilemma()
 
 def resource_dilemma():
+    clear_screen()
     print(resource_dilemma_story())
     while True:
         print("1. Ration supplies strictly")
@@ -155,9 +176,11 @@ def resource_dilemma():
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     unexpected_visitor()
 
 def unexpected_visitor():
+    clear_screen()
     print(unexpected_visitor_story())
     while True:
         print("1. Attempt to help the adrift vessel")
@@ -176,9 +199,11 @@ def unexpected_visitor():
             break
         else:
             print("Invalid choice. Please select again.")
+    input("Press Enter to continue...")
     final_challenge()
 
 def final_challenge():
+    clear_screen()
     print(final_challenge_story())
     if health.get_health() > 2:
         print("You navigate the asteroid field successfully and your mission continues on course.")
@@ -187,12 +212,14 @@ def final_challenge():
     end_game()
 
 def end_game():
+    clear_screen()
     if health.get_health() > 3:
         print("Congratulations! You've successfully launched the mission with your ship in good condition.")
     elif health.get_health() > 0:
         print("You barely manage to get your mission underway. It's going to be a challenging journey!")
     else:
         print("Unfortunately, the ship is too damaged to continue. Mission failed.")
+    input("Press Enter to exit...")
 
 if __name__ == "__main__":
     start_game()
