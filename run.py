@@ -1,4 +1,5 @@
 import os
+import sys
 from game_logic import start_game
 
 def clear_screen():
@@ -11,8 +12,12 @@ def print_welcome_message():
     print("Welcome to Galactic Odyssey".center(80))
     print("=" * 80)
     print("Press Enter to begin your space adventure...".center(80))
-    input()
-    clear_screen()
+    print("Press 'h' for help at any time.".center(80))
+    choice = input().strip().lower()
+    if choice == 'h':
+        print_help_message()
+    else:
+        clear_screen()
 
 def print_help_message():
     clear_screen()
