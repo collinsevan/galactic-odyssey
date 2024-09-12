@@ -1,5 +1,5 @@
 import textwrap
-from utils import format_output  # Import the format_output function
+from utils import format_output
 from story import (
     intro_story,
     prepare_ship_story,
@@ -15,12 +15,14 @@ from story import (
 )
 from health_manager import HealthManager
 
-
+# Initialize health manager with 5 health points
 health = HealthManager()
+
 
 def start_game():
     print(format_output(intro_story()))
     initial_choice()
+
 
 def initial_choice():
     while True:
@@ -39,15 +41,18 @@ def initial_choice():
         else:
             print("Invalid choice. Please select again.")
 
+
 def prepare_ship():
     print(format_output(prepare_ship_story()))
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
     equipment_malfunction()
 
+
 def review_mission():
     print(format_output(review_mission_story()))
     equipment_malfunction()
+
 
 def equipment_malfunction():
     print(format_output(equipment_malfunction_story()))
@@ -58,16 +63,21 @@ def equipment_malfunction():
         ))
         choice = input("Choose your action (1 or 2): ")
         if choice == '1':
-            print(format_output("You've successfully repaired the system and conserved oxygen."))
+            print(format_output(
+                "You've successfully repaired the system and conserved oxygen."
+            ))
             health.gain_health(1)
             break
         elif choice == '2':
-            print(format_output("The manual fix failed, further straining the life support."))
+            print(format_output(
+                "The manual fix failed, further straining the life support."
+            ))
             health.reduce_health(1)
             break
         else:
             print("Invalid choice. Please select again.")
     mid_journey_check()
+
 
 def mid_journey_check():
     print(format_output(mid_journey_check_story()))
@@ -79,18 +89,28 @@ def mid_journey_check():
         ))
         choice = input("What's your command? (1, 2, or 3): ")
         if choice == '1':
-            print(format_output("Shields enhanced, energy consumption increases but you're safer."))
+            print(format_output(
+                "Shields enhanced, energy consumption increases but you're "
+                "safer."
+            ))
             health.reduce_health(1)
             break
         elif choice == '2':
-            print(format_output("You take a risky gamble hoping the sensors are overreacting."))
+            print(format_output(
+                "You take a risky gamble hoping the sensors are "
+                "overreacting."
+            ))
             break
         elif choice == '3':
-            print(format_output("Course adjusted, this will add time but you avoid potential hazards."))
+            print(format_output(
+                "Course adjusted, this will add time but you avoid potential "
+                "hazards."
+            ))
             break
         else:
             print("Invalid choice. Please select again.")
     critical_meltdown()
+
 
 def critical_meltdown():
     print(format_output(critical_meltdown_story()))
@@ -98,18 +118,25 @@ def critical_meltdown():
     print(format_output("2. Abandon the reactor and evacuate"))
     choice = input("What will you do? (1 or 2): ")
     if choice == '1':
-        print(format_output("You manage to stabilize the reactor, but the ship's systems are severely compromised."))
+        print(format_output(
+            "You manage to stabilize the reactor, but the ship's systems are "
+            "severely compromised."
+        ))
         health.reduce_health(3)
         if health.get_health() <= 0:
             end_game()
             return
     elif choice == '2':
-        print(format_output("Evacuation is successful, but your ship suffers irreversible damage."))
+        print(format_output(
+            "Evacuation is successful, but your ship suffers irreversible "
+            "damage."
+        ))
         health.reduce_health(2)
     else:
         print("Invalid choice. Please select again.")
         critical_meltdown()
     advanced_medical_facility()
+
 
 def advanced_medical_facility():
     print(format_output(advanced_medical_facility_story()))
@@ -117,15 +144,21 @@ def advanced_medical_facility():
     print(format_output("2. Leave the facility and continue the mission"))
     choice = input("What will you do? (1 or 2): ")
     if choice == '1':
-        print(format_output("The integration is successful. Your ship's maximum health is increased and current health is fully restored."))
+        print(format_output(
+            "The integration is successful. Your ship's maximum health is "
+            "increased and current health is fully restored."
+        ))
         health.max_health = 6
         health.restore_health()
     elif choice == '2':
-        print(format_output("You continue the mission without any enhancements."))
+        print(format_output(
+            "You continue the mission without any enhancements."
+        ))
     else:
         print("Invalid choice. Please select again.")
         advanced_medical_facility()
     alien_encounter()
+
 
 def alien_encounter():
     print(format_output(alien_encounter_story()))
@@ -136,15 +169,22 @@ def alien_encounter():
         ))
         choice = input("What do you do? (1 or 2): ")
         if choice == '1':
-            print(format_output("The alien vessel shares technology that helps regenerate your energy."))
+            print(format_output(
+                "The alien vessel shares technology that helps "
+                "regenerate your energy."
+            ))
             health.gain_health(1)
             break
         elif choice == '2':
-            print(format_output("Defensive actions lead to heightened tensions but avoid immediate danger."))
+            print(format_output(
+                "Defensive actions lead to heightened tensions but avoid "
+                "immediate danger."
+            ))
             break
         else:
             print("Invalid choice. Please select again.")
     resource_dilemma()
+
 
 def resource_dilemma():
     print(format_output(resource_dilemma_story()))
@@ -155,15 +195,20 @@ def resource_dilemma():
         ))
         choice = input("How will you manage resources? (1 or 2): ")
         if choice == '1':
-            print(format_output("Strict rationing helps conserve supplies but lowers morale."))
+            print(format_output(
+                "Strict rationing helps conserve supplies but lowers morale."
+            ))
             break
         elif choice == '2':
-            print(format_output("Resources run low, endangering the mission's final stages."))
+            print(format_output(
+                "Resources run low, endangering the mission's final stages."
+            ))
             health.reduce_health(1)
             break
         else:
             print("Invalid choice. Please select again.")
     unexpected_visitor()
+
 
 def unexpected_visitor():
     print(format_output(unexpected_visitor_story()))
@@ -175,34 +220,60 @@ def unexpected_visitor():
         ))
         choice = input("How do you respond? (1, 2, or 3): ")
         if choice == '1':
-            print(format_output("You decide to help, using up resources but gaining potential allies."))
+            print(format_output(
+                "You decide to help, using up resources but gaining potential "
+                "allies."
+            ))
             health.reduce_health(2)
             break
         elif choice == '2':
-            print(format_output("You focus on your mission, ignoring the signal."))
+            print(format_output(
+                "You focus on your mission, ignoring the signal."
+            ))
             break
         elif choice == '3':
-            print(format_output("You wait for further instructions, delaying your mission slightly."))
+            print(format_output(
+                "You wait for further instructions, delaying your mission "
+                "slightly."
+            ))
             break
         else:
             print("Invalid choice. Please select again.")
     final_challenge()
 
+
 def final_challenge():
     print(format_output(final_challenge_story()))
     if health.get_health() > 2:
-        print(format_output("You navigate the asteroid field successfully and your mission continues on course."))
+        print(format_output(
+            "You navigate the asteroid field successfully and your mission "
+            "continues on course."
+        ))
     else:
-        print(format_output("Your ship takes significant damage navigating through the asteroid field. Mission compromised."))
+        print(format_output(
+            "Your ship takes significant damage navigating through the "
+            "asteroid field. Mission compromised."
+        ))
     end_game()
+
 
 def end_game():
     if health.get_health() > 3:
-        print(format_output("Congratulations! You've successfully launched the mission with your ship in good condition."))
+        print(format_output(
+            "Congratulations! You've successfully launched the mission with "
+            "your ship in good condition."
+        ))
     elif health.get_health() > 0:
-        print(format_output("You barely manage to get your mission underway. It's going to be a challenging journey!"))
+        print(format_output(
+            "You barely manage to get your mission underway. It's going to be "
+            "a challenging journey!"
+        ))
     else:
-        print(format_output("Unfortunately, the ship is too damaged to continue. Mission failed."))
+        print(format_output(
+            "Unfortunately, the ship is too damaged to continue. "
+            "Mission failed."
+        ))
+
 
 if __name__ == "__main__":
     start_game()
