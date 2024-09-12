@@ -1,3 +1,5 @@
+import textwrap
+from utils import format_output  # Import the format_output function
 from story import (
     intro_story,
     prepare_ship_story,
@@ -12,25 +14,21 @@ from story import (
     final_challenge_story
 )
 from health_manager import HealthManager
-import os
+
 
 health = HealthManager()
 
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
 def start_game():
-    clear_screen()
-    print(intro_story())
-    input("Press Enter to continue...")
+    print(format_output(intro_story()))
     initial_choice()
 
 def initial_choice():
     while True:
-        clear_screen()
-        print("What will you do next?")
-        print("1. Prepare the ship for launch")
-        print("2. Review mission details")
+        print(format_output(
+            "What will you do next?\n"
+            "1. Prepare the ship for launch\n"
+            "2. Review mission details"
+        ))
         choice = input("Enter your choice (1 or 2): ")
         if choice == '1':
             prepare_ship()
@@ -42,184 +40,169 @@ def initial_choice():
             print("Invalid choice. Please select again.")
 
 def prepare_ship():
-    clear_screen()
-    print(prepare_ship_story())
+    print(format_output(prepare_ship_story()))
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
-    input("Press Enter to continue...")
     equipment_malfunction()
 
 def review_mission():
-    clear_screen()
-    print(review_mission_story())
-    input("Press Enter to continue...")
+    print(format_output(review_mission_story()))
     equipment_malfunction()
 
 def equipment_malfunction():
-    clear_screen()
-    print(equipment_malfunction_story())
+    print(format_output(equipment_malfunction_story()))
     while True:
-        print("1. Repair the life support system using spare parts")
-        print("2. Attempt a manual fix without using resources")
+        print(format_output(
+            "1. Repair the life support system using spare parts\n"
+            "2. Attempt a manual fix without using resources"
+        ))
         choice = input("Choose your action (1 or 2): ")
         if choice == '1':
-            print("You've successfully repaired the system and conserved oxygen.")
+            print(format_output("You've successfully repaired the system and conserved oxygen."))
             health.gain_health(1)
             break
         elif choice == '2':
-            print("The manual fix failed, further straining the life support.")
+            print(format_output("The manual fix failed, further straining the life support."))
             health.reduce_health(1)
             break
         else:
             print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
     mid_journey_check()
 
 def mid_journey_check():
-    clear_screen()
-    print(mid_journey_check_story())
+    print(format_output(mid_journey_check_story()))
     while True:
-        print("1. Adjust shields to maximum")
-        print("2. Ignore and continue on current course")
-        print("3. Reroute to avoid the anomaly")
+        print(format_output(
+            "1. Adjust shields to maximum\n"
+            "2. Ignore and continue on current course\n"
+            "3. Reroute to avoid the anomaly"
+        ))
         choice = input("What's your command? (1, 2, or 3): ")
         if choice == '1':
-            print("Shields enhanced, energy consumption increases but you're safer.")
+            print(format_output("Shields enhanced, energy consumption increases but you're safer."))
             health.reduce_health(1)
             break
         elif choice == '2':
-            print("You take a risky gamble hoping the sensors are overreacting.")
+            print(format_output("You take a risky gamble hoping the sensors are overreacting."))
             break
         elif choice == '3':
-            print("Course adjusted, this will add time but you avoid potential hazards.")
+            print(format_output("Course adjusted, this will add time but you avoid potential hazards."))
             break
         else:
             print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
     critical_meltdown()
 
 def critical_meltdown():
-    clear_screen()
-    print(critical_meltdown_story())
-    while True:
-        print("1. Attempt to stabilize the reactor")
-        print("2. Abandon the reactor and evacuate")
-        choice = input("What will you do? (1 or 2): ")
-        if choice == '1':
-            print("You manage to stabilize the reactor, but the ship's systems are severely compromised.")
-            health.reduce_health(3)
-            if health.get_health() <= 0:
-                end_game()
-                return
-            break
-        elif choice == '2':
-            print("Evacuation is successful, but your ship suffers irreversible damage.")
-            health.reduce_health(2)
-            break
-        else:
-            print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
+    print(format_output(critical_meltdown_story()))
+    print(format_output("1. Attempt to stabilize the reactor"))
+    print(format_output("2. Abandon the reactor and evacuate"))
+    choice = input("What will you do? (1 or 2): ")
+    if choice == '1':
+        print(format_output("You manage to stabilize the reactor, but the ship's systems are severely compromised."))
+        health.reduce_health(3)
+        if health.get_health() <= 0:
+            end_game()
+            return
+    elif choice == '2':
+        print(format_output("Evacuation is successful, but your ship suffers irreversible damage."))
+        health.reduce_health(2)
+    else:
+        print("Invalid choice. Please select again.")
+        critical_meltdown()
     advanced_medical_facility()
 
 def advanced_medical_facility():
-    clear_screen()
-    print(advanced_medical_facility_story())
-    while True:
-        print("1. Integrate the health systems with your ship")
-        print("2. Leave the facility and continue the mission")
-        choice = input("What will you do? (1 or 2): ")
-        if choice == '1':
-            print("The integration is successful. Your ship's maximum health is increased and current health is fully restored.")
-            health.set_max_health(6)
-            health.restore_health()
-            break
-        elif choice == '2':
-            print("You continue the mission without any enhancements.")
-            break
-        else:
-            print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
+    print(format_output(advanced_medical_facility_story()))
+    print(format_output("1. Integrate the health systems with your ship"))
+    print(format_output("2. Leave the facility and continue the mission"))
+    choice = input("What will you do? (1 or 2): ")
+    if choice == '1':
+        print(format_output("The integration is successful. Your ship's maximum health is increased and current health is fully restored."))
+        health.max_health = 6
+        health.restore_health()
+    elif choice == '2':
+        print(format_output("You continue the mission without any enhancements."))
+    else:
+        print("Invalid choice. Please select again.")
+        advanced_medical_facility()
     alien_encounter()
 
 def alien_encounter():
-    clear_screen()
-    print(alien_encounter_story())
+    print(format_output(alien_encounter_story()))
     while True:
-        print("1. Communicate peacefully")
-        print("2. Prepare defenses")
+        print(format_output(
+            "1. Communicate peacefully\n"
+            "2. Prepare defenses"
+        ))
         choice = input("What do you do? (1 or 2): ")
         if choice == '1':
-            print("The alien vessel shares technology that helps regenerate your energy.")
+            print(format_output("The alien vessel shares technology that helps regenerate your energy."))
             health.gain_health(1)
             break
         elif choice == '2':
-            print("Defensive actions lead to heightened tensions but avoid immediate danger.")
+            print(format_output("Defensive actions lead to heightened tensions but avoid immediate danger."))
             break
         else:
             print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
     resource_dilemma()
 
 def resource_dilemma():
-    clear_screen()
-    print(resource_dilemma_story())
+    print(format_output(resource_dilemma_story()))
     while True:
-        print("1. Ration supplies strictly")
-        print("2. Keep current consumption")
+        print(format_output(
+            "1. Ration supplies strictly\n"
+            "2. Keep current consumption"
+        ))
         choice = input("How will you manage resources? (1 or 2): ")
         if choice == '1':
-            print("Strict rationing helps conserve supplies but lowers morale.")
+            print(format_output("Strict rationing helps conserve supplies but lowers morale."))
             break
         elif choice == '2':
-            print("Resources run low, endangering the mission's final stages.")
+            print(format_output("Resources run low, endangering the mission's final stages."))
             health.reduce_health(1)
             break
         else:
             print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
     unexpected_visitor()
 
 def unexpected_visitor():
-    clear_screen()
-    print(unexpected_visitor_story())
+    print(format_output(unexpected_visitor_story()))
     while True:
-        print("1. Attempt to help the adrift vessel")
-        print("2. Preserve resources and ignore the signal")
-        print("3. Contact your command for instructions")
+        print(format_output(
+            "1. Attempt to help the adrift vessel\n"
+            "2. Preserve resources and ignore the signal\n"
+            "3. Contact your command for instructions"
+        ))
         choice = input("How do you respond? (1, 2, or 3): ")
         if choice == '1':
-            print("You decide to help, using up resources but gaining potential allies.")
+            print(format_output("You decide to help, using up resources but gaining potential allies."))
             health.reduce_health(2)
             break
         elif choice == '2':
-            print("You focus on your mission, ignoring the signal.")
+            print(format_output("You focus on your mission, ignoring the signal."))
             break
         elif choice == '3':
-            print("You wait for further instructions, delaying your mission slightly.")
+            print(format_output("You wait for further instructions, delaying your mission slightly."))
             break
         else:
             print("Invalid choice. Please select again.")
-    input("Press Enter to continue...")
     final_challenge()
 
 def final_challenge():
-    clear_screen()
-    print(final_challenge_story())
+    print(format_output(final_challenge_story()))
     if health.get_health() > 2:
-        print("You navigate the asteroid field successfully and your mission continues on course.")
+        print(format_output("You navigate the asteroid field successfully and your mission continues on course."))
     else:
-        print("Your ship takes significant damage navigating through the asteroid field. Mission compromised.")
+        print(format_output("Your ship takes significant damage navigating through the asteroid field. Mission compromised."))
     end_game()
 
 def end_game():
-    clear_screen()
     if health.get_health() > 3:
-        print("Congratulations! You've successfully launched the mission with your ship in good condition.")
+        print(format_output("Congratulations! You've successfully launched the mission with your ship in good condition."))
     elif health.get_health() > 0:
-        print("You barely manage to get your mission underway. It's going to be a challenging journey!")
+        print(format_output("You barely manage to get your mission underway. It's going to be a challenging journey!"))
     else:
-        print("Unfortunately, the ship is too damaged to continue. Mission failed.")
-    input("Press Enter to exit...")
+        print(format_output("Unfortunately, the ship is too damaged to continue. Mission failed."))
 
 if __name__ == "__main__":
     start_game()
