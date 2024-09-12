@@ -1,6 +1,6 @@
 import textwrap
 
-def format_output(text, width=50):
+def format_output(text, width=55):
     """
     Formats the provided text to wrap at a specified width.
 
