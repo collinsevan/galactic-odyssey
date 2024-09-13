@@ -118,9 +118,87 @@ The current version of the game is text-based, focusing on narrative and player 
 
 ## Deployment
 
-### Steps to deploy site using Heroku
+### Steps to Deploy Site Using Heroku
 
-### Steps to clone site
+1. **Create a Heroku Account**: If you don't have one, sign up for a free account at [Heroku](https://www.heroku.com/).
+
+2. **Install the Heroku CLI**: Download and install the Heroku Command Line Interface (CLI) from [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+
+3. **Log In to Heroku**: Open your terminal or command prompt and log in by running:
+    ```bash
+    heroku login
+    ```
+    Follow the prompts to authenticate.
+
+4. **Prepare Your Application**: Ensure your application has a `Procfile` that specifies how to run your app. For a Python app, it might look like:
+    ```
+    web: python run.py
+    ```
+
+5. **Initialize a Git Repository**: If you haven't already, initialize a Git repository in your project directory:
+    ```bash
+    git init
+    ```
+
+6. **Commit Your Changes**: Add and commit your files to the Git repository:
+    ```bash
+    git add .
+    git commit -m "Initial commit"
+    ```
+
+7. **Create a Heroku App**: Create a new Heroku app with:
+    ```bash
+    heroku create
+    ```
+
+8. **Push Your Code to Heroku**: Deploy your application to Heroku by pushing your code:
+    ```bash
+    git push heroku master
+    ```
+
+9. **Open Your Application**: Once deployment is complete, open your application in the browser:
+    ```bash
+    heroku open
+    ```
+
+10. **Monitor Logs**: Check the logs to troubleshoot any issues:
+    ```bash
+    heroku logs --tail
+    ```
+
+### Steps to Clone Site
+
+1. **Clone the Repository**: To clone the repository to your local machine, use the Git clone command. Replace `REPOSITORY_URL` with the URL of the repository:
+    ```bash
+    git clone REPOSITORY_URL
+    ```
+
+2. **Navigate to the Project Directory**: Change to the directory where the project was cloned:
+    ```bash
+    cd PROJECT_DIRECTORY
+    ```
+
+3. **Set Up Your Environment**: If the project requires any environment variables or dependencies, set them up according to the project's documentation. For a Python project, you might need to install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the Application Locally**: Start the application locally to ensure it works as expected:
+    ```bash
+    python run.py
+    ```
+
+5. **Update Remote Settings**: If you plan to push changes back to the original repository, ensure your Git remote settings are correct:
+    ```bash
+    git remote -v
+    ```
+
+6. **Push Changes**: To push any local changes to the repository, commit them first and then push:
+    ```bash
+    git add .
+    git commit -m "Your message"
+    git push origin master
+    ```
 
 ## Credits
 
