@@ -16,9 +16,8 @@ from story import (
 )
 from health_manager import HealthManager
 
-
 health = HealthManager()
-resources = 1  # Start with one resource
+resources = 1  # Initialize resources with 1
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -60,7 +59,7 @@ def prepare_ship():
     print(format_output(prepare_ship_story()))
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
-    print(f"Resources: {resources}")  # Display resources
+    print(f"Resources: {resources}")  # Show resources
     pause()
     equipment_malfunction()
 
@@ -73,6 +72,7 @@ def review_mission():
 
 
 def equipment_malfunction():
+    global resources  # Declare global variable usage
     clear_screen()
     print(format_output(equipment_malfunction_story()))
     while True:
@@ -84,12 +84,12 @@ def equipment_malfunction():
         if choice == '1':
             if resources > 0:
                 print(format_output(
-                    "You've successfully repaired the system and conserved oxygen."
+                    "You've successfully repaired the system and "
+                    "conserved oxygen."
                 ))
                 health.gain_health(1)
-                global resources
-                resources -= 1  # Decrement resource
-                print(f"Resources: {resources}")  # Display resources
+                resources -= 1  # Use a resource
+                print(f"Resources: {resources}")  # Show resources
             else:
                 print("Not enough resources to repair the system.")
             break
@@ -246,6 +246,7 @@ def resource_dilemma():
 
 
 def unexpected_visitor():
+    global resources  # Declare global variable usage
     clear_screen()
     print(format_output(unexpected_visitor_story()))
     while True:
@@ -256,13 +257,15 @@ def unexpected_visitor():
         ))
         choice = input("How do you respond? (1, 2, or 3): ")
         if choice == '1':
-            print(format_output(
-                "You decide to help, using up resources but gaining potential "
-                "allies."
-            ))
-            global resources
-            resources -= 2  # Decrement resources
-            print(f"Resources: {resources}")  # Display resources
+            if resources >= 2:
+                print(format_output(
+                    "You decide to help, using up resources but gaining potential "
+                    "allies."
+                ))
+                resources -= 2  # Use resources
+                print(f"Resources: {resources}")  # Show resources
+            else:
+                print("Not enough resources to help the vessel.")
             break
         elif choice == '2':
             print(format_output(
