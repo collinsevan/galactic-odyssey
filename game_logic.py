@@ -19,6 +19,7 @@ from health_manager import HealthManager
 health = HealthManager()
 resources = 1  # Initialize resources with 1
 
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -259,8 +260,8 @@ def unexpected_visitor():
         if choice == '1':
             if resources >= 2:
                 print(format_output(
-                    "You decide to help, using up resources but gaining potential "
-                    "allies."
+                    "You decide to help, using up resources but gaining\n"
+                    "potential allies."
                 ))
                 resources -= 2  # Use resources
                 print(f"Resources: {resources}")  # Show resources

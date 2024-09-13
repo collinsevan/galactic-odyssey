@@ -89,6 +89,38 @@ def unexpected_visitor_story():
     )
 
 
+def emergency_repair_story():
+    return format_output(
+        "Critical malfunction in the ship's engine requires immediate "
+        "attention. Decide whether to use resources for a quick fix or "
+        "attempt a riskier manual repair.", width=55
+    )
+
+
+def resource_discovery_story():
+    return format_output(
+        "You find a cache of supplies guarded by alien technology. "
+        "Decide whether to use resources to retrieve these supplies or "
+        "avoid the risk and continue your mission.", width=55
+    )
+
+
+def space_station_rescue_story():
+    return format_output(
+        "A damaged space station with survivors needs assistance. "
+        "You must decide if you will use resources to aid them or "
+        "proceed with your mission, conserving your own resources.", width=55
+    )
+
+
+def unexpected_upgrade_story():
+    return format_output(
+        "An unknown alien device offers a potential upgrade to your ship. "
+        "You need to decide whether to invest resources for the upgrade or "
+        "continue without it, potentially risking mission success.", width=55
+    )
+
+
 def final_challenge_story():
     return format_output(
         "Approaching Titan V, you're alerted to an asteroid field "
