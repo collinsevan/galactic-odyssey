@@ -18,7 +18,7 @@ from health_manager import HealthManager
 
 
 health = HealthManager()
-
+resources = 1  # Start with one resource
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -60,6 +60,7 @@ def prepare_ship():
     print(format_output(prepare_ship_story()))
     health.reduce_health(1)
     print(f"Ship health: {health.get_health()}")
+    print(f"Resources: {resources}")  # Display resources
     pause()
     equipment_malfunction()
 
@@ -81,10 +82,16 @@ def equipment_malfunction():
         ))
         choice = input("Choose your action (1 or 2): ")
         if choice == '1':
-            print(format_output(
-                "You've successfully repaired the system and conserved oxygen."
-            ))
-            health.gain_health(1)
+            if resources > 0:
+                print(format_output(
+                    "You've successfully repaired the system and conserved oxygen."
+                ))
+                health.gain_health(1)
+                global resources
+                resources -= 1  # Decrement resource
+                print(f"Resources: {resources}")  # Display resources
+            else:
+                print("Not enough resources to repair the system.")
             break
         elif choice == '2':
             print(format_output(
@@ -253,7 +260,9 @@ def unexpected_visitor():
                 "You decide to help, using up resources but gaining potential "
                 "allies."
             ))
-            health.reduce_health(2)
+            global resources
+            resources -= 2  # Decrement resources
+            print(f"Resources: {resources}")  # Display resources
             break
         elif choice == '2':
             print(format_output(
