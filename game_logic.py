@@ -12,7 +12,11 @@ from story import (
     alien_encounter_story,
     resource_dilemma_story,
     unexpected_visitor_story,
-    final_challenge_story
+    final_challenge_story,
+    emergency_repair_story,
+    resource_discovery_story,
+    space_station_rescue_story,
+    unexpected_upgrade_story
 )
 from health_manager import HealthManager
 
@@ -181,6 +185,7 @@ def advanced_medical_facility():
             "increased and current health is fully restored."
         ))
         health.max_health += 2
+        health.restore_health()
     elif choice == '2':
         print(format_output(
             "You continue the mission without any enhancements."
@@ -282,44 +287,158 @@ def unexpected_visitor():
         else:
             print("Invalid choice. Please select again.")
     pause()
+    emergency_repair()
+
+
+def emergency_repair():
+    global resources  # Declare global variable usage
+    clear_screen()
+    print(format_output(emergency_repair_story()))
+    while True:
+        print(format_output(
+            "1. Use resources for a quick repair\n"
+            "2. Attempt a manual repair"
+        ))
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            if resources > 0:
+                print(format_output(
+                    "You successfully repair the engine using resources."
+                ))
+                resources -= 1  # Use a resource
+                health.gain_health(1)
+                print(f"Resources: {resources}")  # Show resources
+            else:
+                print("Not enough resources for the quick repair.")
+            break
+        elif choice == '2':
+            print(format_output(
+                "The manual repair fails, causing additional damage."
+            ))
+            health.reduce_health(2)
+            break
+        else:
+            print("Invalid choice. Please select again.")
+    pause()
+    resource_discovery()
+
+
+def resource_discovery():
+    global resources  # Declare global variable usage
+    clear_screen()
+    print(format_output(resource_discovery_story()))
+    while True:
+        print(format_output(
+            "1. Use the new resources to improve the ship\n"
+            "2. Save the resources for emergencies"
+        ))
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            print(format_output(
+                "You integrate the new resources into the ship, boosting its "
+                "performance."
+            ))
+            resources += 2  # Gain resources
+            print(f"Resources: {resources}")  # Show resources
+            break
+        elif choice == '2':
+            print(format_output(
+                "You decide to save the resources for potential emergencies."
+            ))
+            break
+        else:
+            print("Invalid choice. Please select again.")
+    pause()
+    space_station_rescue()
+
+
+def space_station_rescue():
+    clear_screen()
+    print(format_output(space_station_rescue_story()))
+    while True:
+        print(format_output(
+            "1. Rescue the crew and provide supplies\n"
+            "2. Continue to Titan V without intervention"
+        ))
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            if resources >= 3:
+                print(format_output(
+                    "You successfully rescue the crew and provide essential "
+                    "supplies."
+                ))
+                resources -= 3  # Use resources
+                health.gain_health(2)
+                print(f"Resources: {resources}")  # Show resources
+            else:
+                print("Not enough resources to complete the rescue.")
+            break
+        elif choice == '2':
+            print(format_output(
+                "You continue to Titan V without aiding the station."
+            ))
+            break
+        else:
+            print("Invalid choice. Please select again.")
+    pause()
+    unexpected_upgrade()
+
+
+def unexpected_upgrade():
+    clear_screen()
+    print(format_output(unexpected_upgrade_story()))
+    while True:
+        print(format_output(
+            "1. Apply the upgrade to improve ship systems\n"
+            "2. Save the upgrade for later use"
+        ))
+        choice = input("What will you do? (1 or 2): ")
+        if choice == '1':
+            print(format_output(
+                "The upgrade enhances your ship's performance."
+            ))
+            health.gain_health(1)
+            break
+        elif choice == '2':
+            print(format_output(
+                "You choose to save the upgrade for later use."
+            ))
+            break
+        else:
+            print("Invalid choice. Please select again.")
+    pause()
     final_challenge()
 
 
 def final_challenge():
     clear_screen()
     print(format_output(final_challenge_story()))
-    if health.get_health() > 2:
+    print(format_output("1. Navigate through the asteroid field"))
+    print(format_output("2. Attempt to find an alternate route"))
+    choice = input("What will you do? (1 or 2): ")
+    if choice == '1':
         print(format_output(
-            "You navigate the asteroid field successfully and your mission "
-            "continues on course."
+            "You navigate through the asteroid field with skill, but it "
+            "takes a toll on the ship."
+        ))
+        health.reduce_health(2)
+    elif choice == '2':
+        print(format_output(
+            "You find an alternate route, avoiding immediate danger but "
+            "adding time to your journey."
         ))
     else:
-        print(format_output(
-            "Your ship takes significant damage navigating through the "
-            "asteroid field. Mission compromised."
-        ))
+        print("Invalid choice. Please select again.")
+        final_challenge()
+    pause()
     end_game()
 
 
 def end_game():
     clear_screen()
-    if health.get_health() > 3:
-        print(format_output(
-            "Congratulations! You've successfully launched the mission with "
-            "your ship in good condition."
-        ))
-    elif health.get_health() > 0:
-        print(format_output(
-            "You barely manage to get your mission underway. It's going to be "
-            "a challenging journey!"
-        ))
-    else:
-        print(format_output(
-            "Unfortunately, the ship is too damaged to continue. "
-            "Mission failed."
-        ))
-    pause()
-
-
-if __name__ == "__main__":
-    start_game()
+    print(format_output(
+        "Congratulations! You've completed your mission to Titan V.\n"
+        "Your journey had many challenges, but you navigated them all.\n"
+        "Thank you for playing!"
+    ))
+    exit()
