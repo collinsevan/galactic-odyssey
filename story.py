@@ -1,6 +1,7 @@
 import textwrap
 from utils import format_output
 
+
 def intro_story():
     return format_output(
         "You are the captain of the spaceship *Starfire*, "
