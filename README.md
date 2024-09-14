@@ -311,4 +311,28 @@ Overall, each user story was thoroughly tested to confirm that the application m
 
 ## Credits
 
+This project was made possible with the help and inspiration from various resources, repositories, and documentation. Below is a list of credits to acknowledge their contributions:
+
+#### GitHub Repositories
+
+- **Hangman Game by mittnamnkenny**: This repository provided inspiration for some game logic and structuring ideas. [GitHub Link](https://github.com/mittnamnkenny/hangman-game/tree/main)
+- **SEO Tools by Jannis Kiriasis**: Utilized some ideas for optimizing game code and structuring functions effectively. [GitHub Link](https://github.com/jannis-kiriasis/seo-tools)
+- **Hide and Seek by SJECollins**: Inspiration for terminal-based game design and user interaction patterns. [GitHub Link](https://github.com/SJECollins/ci-pp3-hide-and-seek)
+- **The Hobbit Game by charlie-vf**: Influences for game mechanics and user input handling. [GitHub Link](https://github.com/charlie-vf/the-hobbit-game)
+
+#### Documentation and Modules
+
+- **Python `sys` Module**: Used to handle system-level operations and exit the game cleanly. Documentation available [here](https://docs.python.org/3/library/sys.html).
+- **Python `os` Module**: Employed for handling terminal clear commands and other operating system interactions. Documentation available [here](https://docs.python.org/3/library/os.html).
+- **Python `textwrap` Module**: Used to format text output to fit within a specific width, ensuring better readability in the terminal. Documentation available [here](https://docs.python.org/3/library/textwrap.html).
+
+#### Additional Acknowledgments
+
+- **Code Institute Python Linter**: Used for ensuring PEP 8 compliance throughout the project. More information can be found [here](https://pep8ci.herokuapp.com/#).
+- **Lighthouse Tool**: Utilized for checking performance, accessibility, SEO, and best practices for the web-based aspects. More information is available in the Chrome DevTools documentation [here](https://developers.google.com/web/tools/lighthouse).
+- **Stack Overflow and Python Community**: Various discussions and answers were referenced to solve specific coding challenges and improve the overall quality of the code.
+
+Special thanks to all the developers, communities, and documentation that made this project possible!
+
 ## Acknowledgements
+I would like to express my sincere gratitude to my mentor, **Brian Macharia**, for his guidance and encouragement throughout this project.
