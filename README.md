@@ -115,56 +115,39 @@ The current version of the game is text-based, focusing on narrative and player 
 ### Testing Functionality
 
 ### Testing User Stories
-z
+
 ## Deployment
 
-### Steps to Deploy Site Using Heroku
+## How to Deploy Your App on Heroku
 
-1. **Create a Heroku Account**: If you don't have one, sign up for a free account at [Heroku](https://www.heroku.com/).
+1. **Start a New App**
+   - In your Heroku dashboard, click on "New" and select "Create new app".
+   - Provide a unique name for your application.
+   - Choose the appropriate region for your deployment.
+   - Click "Create app" to initialize your new app.
 
-2. **Install the Heroku CLI**: Download and install the Heroku Command Line Interface (CLI) from [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+2. **Configure Environment Variables**
+   - Go to the "Settings" tab of your app.
+   - Find the "Config Vars" section and click "Reveal Config Vars".
+   - Add the necessary configuration variables. For instance, set `PORT` as the key and `8000` as the value.
+   - Click "Add" to save your settings.
 
-3. **Log In to Heroku**: Open your terminal or command prompt and log in by running:
-    ```bash
-    heroku login
-    ```
-    Follow the prompts to authenticate.
+3. **Set Up Buildpacks**
+   - In the "Settings" tab, locate the "Buildpacks" section and click "Add buildpack".
+   - Add the "python" buildpack first, then click "Save changes".
+   - Add the "node.js" buildpack next and click "Save changes" again.
 
-4. **Prepare Your Application**: Ensure your application has a `Procfile` that specifies how to run your app. For a Python app, it might look like:
-    ```
-    web: python run.py
-    ```
+4. **Deploy Your Application**
+   - Navigate to the "Deploy" tab.
+   - Choose "GitHub" as your deployment method and connect your GitHub account if needed.
+   - Search for your repository and click "Connect" to link it with Heroku.
+   - In the "Deploy" section, you can choose between:
+     - **Automatic Deploys**: Enable this option to automatically deploy your app whenever you push updates to GitHub.
+     - **Manual Deploy**: Select the branch you want to deploy and click "Deploy Branch" to start the deployment process manually.
 
-5. **Initialize a Git Repository**: If you haven't already, initialize a Git repository in your project directory:
-    ```bash
-    git init
-    ```
-
-6. **Commit Your Changes**: Add and commit your files to the Git repository:
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    ```
-
-7. **Create a Heroku App**: Create a new Heroku app with:
-    ```bash
-    heroku create
-    ```
-
-8. **Push Your Code to Heroku**: Deploy your application to Heroku by pushing your code:
-    ```bash
-    git push heroku master
-    ```
-
-9. **Open Your Application**: Once deployment is complete, open your application in the browser:
-    ```bash
-    heroku open
-    ```
-
-10. **Monitor Logs**: Check the logs to troubleshoot any issues:
-    ```bash
-    heroku logs --tail
-    ```
+5. **Access Your App**
+   - Monitor the build and deployment progress on the Heroku dashboard.
+   - Once the deployment is complete, you can view your app by clicking "Open app" at the top of the page.
 
 ### Steps to Clone Site
 
