@@ -106,7 +106,48 @@ The current version of the game is text-based, focusing on narrative and player 
 
 ## Testing
 
-### PEP8 online check
+### PEP 8 Testing
+
+To ensure that all Python scripts in this project adhere to the PEP 8 style guide, we performed PEP 8 compliance testing using the **Code Institute Python Linter**, available at [PEP8CI](https://pep8ci.herokuapp.com/#). PEP 8 is the official style guide for Python, and adhering to it helps maintain clean, readable, and consistent code across the project.
+
+The following scripts were tested for PEP 8 compliance:
+
+- **game_logicval.py**
+  ![game_logicval PEP 8 Compliance](assets/game_logicval.png)
+
+- **Healthmanagerval.py**
+  ![Healthmanagerval PEP 8 Compliance](assets/Healthmanagerval.png)
+
+- **runpyval.py**
+  ![runpyval PEP 8 Compliance](assets/runpyval.png)
+
+- **storyval.py**
+  ![storyval PEP 8 Compliance](assets/storyval.png)
+
+- **resourcesval.py**
+  ![resourcesval PEP 8 Compliance](assets/resourcesval.png)
+
+- **utilsval.py**
+  ![utilsval PEP 8 Compliance](assets/utilsval.png)
+
+Each of these files was uploaded to the [PEP8CI linter](https://pep8ci.herokuapp.com/#), and the linter's output was reviewed to check for any PEP 8 violations. The linter checks for various coding standards, such as proper indentation, line length, spacing, naming conventions, and more, ensuring that the code follows best practices.
+
+#### Results of PEP 8 Testing
+
+After running all the files through the Code Institute Python Linter, the results were as follows:
+
+- **No PEP 8 Errors or Warnings**: All the files listed above were found to be fully compliant with the PEP 8 guidelines. The linter did not report any errors or warnings, indicating that the code is clean, readable, and follows the standard Python coding style.
+
+#### How to Test PEP 8 Compliance
+
+If you wish to verify PEP 8 compliance for these files or any other files, you can follow these steps:
+
+1. Visit the [PEP8CI linter](https://pep8ci.herokuapp.com/#) website.
+2. Upload the Python file(s) you want to test.
+3. Review the linter output for any PEP 8 compliance issues.
+
+By ensuring PEP 8 compliance, we maintain a high standard of code quality and readability across the project.
+
 
 ### Lighthouse
 
