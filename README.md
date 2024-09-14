@@ -151,6 +151,37 @@ By ensuring PEP 8 compliance, we maintain a high standard of code quality and re
 
 ### Lighthouse
 
+Lighthouse is an open-source, automated tool used to improve the quality of web pages. It provides audits for performance, accessibility, best practices, SEO, and Progressive Web Apps (PWAs). To ensure that our project meets high standards across these categories, we used Lighthouse to run a series of tests on our application.
+
+Below is the Lighthouse audit result for our project:
+
+![Lighthouse Audit Results](assets/lighthouse.png)
+
+### Explanation of Lighthouse Results
+
+- **Performance**: This metric assesses how quickly the application loads and becomes interactive. Our project achieved a strong performance score, indicating efficient resource use, fast loading times, and minimal render-blocking resources.
+  
+- **Accessibility**: This score represents how accessible the application is to all users, including those with disabilities. A high score was achieved, reflecting our use of semantic HTML, proper color contrast, alt attributes for images, and keyboard navigation support.
+
+- **Best Practices**: This metric evaluates whether the site adheres to web development best practices, such as using HTTPS, avoiding deprecated APIs, and ensuring that images are optimized. Our project scored highly, showcasing our commitment to modern development standards.
+
+- **SEO**: The SEO score assesses how well-optimized the application is for search engines. A high score indicates that the site follows best practices for content discoverability, such as proper use of meta tags, heading structures, and descriptive link text.
+
+- **Progressive Web App (PWA)**: If applicable, the PWA score evaluates how well the application is set up to work as a Progressive Web App. A high score here reflects our project’s readiness to offer a reliable, installable experience similar to native applications.
+
+### How to Perform a Lighthouse Audit
+
+To perform a Lighthouse audit yourself, follow these steps:
+
+1. Open the project in **Google Chrome**.
+2. Right-click on the page and select **Inspect** to open Chrome DevTools.
+3. Go to the **Lighthouse** tab in the DevTools panel.
+4. Choose the desired categories to audit (Performance, Accessibility, Best Practices, SEO, PWA) and click **Generate Report**.
+5. Review the results and adjust the application as needed to improve the scores.
+
+Regular Lighthouse audits help maintain high standards in performance, accessibility, and other key areas, ensuring an excellent user experience across different devices and network conditions.
+
+
 ### Browser Compatibility
 
 ### Testing Functionality
