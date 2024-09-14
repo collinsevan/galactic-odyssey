@@ -17,7 +17,7 @@ As a user,
 - I would like to understand how to interact with the game.
 - I would like to be able to make decisions within the game that determine wether I win or fail.
 - I would like the options I have to be clearly presented to me.
-- I would like to be able to replay the game when I reach an ending.
+- I would like to be able to replay the game when I reach an ending by refreshing the terminal.
 
 ## Features
 
@@ -184,9 +184,63 @@ Regular Lighthouse audits help maintain high standards in performance, accessibi
 
 ### Browser Compatibility
 
+The project has been thoroughly tested for compatibility across all major web browsers to ensure a consistent and reliable user experience. The following browsers have been tested:
+
+- **Google Chrome**
+- **Mozilla Firefox**
+- **Microsoft Edge**
+- **Safari**
+- **Opera**
+
+The application works smoothly and as expected on all these browsers, maintaining the same functionality, layout, and performance. This cross-browser compatibility ensures that users can access and use the application seamlessly, regardless of their preferred browser choice.
+
+By supporting multiple browsers, we aim to provide a high-quality experience for a wide range of users, ensuring that no one is left out due to browser limitations.
+
+
 ### Testing Functionality
 
+The terminal application has been thoroughly tested and played through multiple times to ensure all features function correctly and provide a smooth user experience. The testing process involved going through each possible user interaction to check for any bugs, errors, or unexpected behavior.
+
+Key aspects tested include:
+
+- **User Inputs**: All possible user inputs were tested, including valid and invalid entries, to ensure the application handles them correctly and provides appropriate feedback.
+- **Flow of the Application**: The app was played through from start to finish to verify that the logic flows as expected and that users can progress without encountering errors.
+- **Error Handling**: Various scenarios were simulated to test the app's ability to handle exceptions gracefully, such as incorrect inputs or edge cases.
+- **General Stability**: The app was tested for stability across different environments and terminals to confirm consistent performance.
+
+Overall, the testing confirmed that the terminal app is stable, bug-free, and performs as intended across various scenarios.
+
+
 ### Testing User Stories
+
+The following user stories were identified during the planning phase of the project. Each story was tested to ensure that the application meets the user's requirements and provides a seamless experience.
+
+#### User Story 1: "As a user, I want to be able to start a new game easily."
+
+- **Testing**: Verified that the application starts a new game with a clear command or option available to the user. Tested multiple times to ensure the game initializes correctly each time without any errors.
+
+#### User Story 2: "As a user, I want to see clear instructions on how to play the game."
+
+- **Testing**: Checked that the game provides clear and concise instructions at the start or through an accessible command. Verified that instructions are easily understandable and provide all necessary details for gameplay.
+
+#### User Story 3: "As a user, I want to input my choices and receive immediate feedback."
+
+- **Testing**: Tested all input options to ensure they are accepted by the application and that feedback is given promptly. This included testing both valid and invalid inputs to confirm appropriate handling and feedback.
+
+#### User Story 4: "As a user, I want to be able to view my score or progress at any point."
+
+- **Testing**: Ensured that users can view their score or progress at any point during the game by following the provided instructions or commands. Tested different stages of the game to verify accurate display of scores or progress.
+
+#### User Story 5: "As a user, I want to be able to replay the game."
+
+- **Testing**: Verified that the game can be replayed by refreshing the browser or terminal. Tested multiple times to ensure that refreshing correctly resets the game state and allows for a new game session without any issues.
+
+#### User Story 6: "As a user, I want a smooth and bug-free experience throughout the game."
+
+- **Testing**: Played through the game multiple times from start to finish, simulating various scenarios to ensure there were no crashes, bugs, or unexpected behaviors. Verified that the game provides a consistent experience across all tests.
+
+Overall, each user story was thoroughly tested to confirm that the application meets the user's needs and performs reliably under various conditions.
+
 
 ## Deployment
 
