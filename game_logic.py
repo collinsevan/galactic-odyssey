@@ -25,14 +25,24 @@ resources = 1  # Initialize resources with 1
 
 
 def clear_screen():
+    """
+    Clears the terminal screen for better readability.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def pause():
+    """
+    Pauses the execution until the user presses Enter.
+    """
     input("Press Enter to continue...")
 
 
 def start_game():
+    """
+    Starts the game by displaying the introductory story and
+    proceeding to the initial choice.
+    """
     clear_screen()
     print(format_output(intro_story()))
     pause()
@@ -40,6 +50,10 @@ def start_game():
 
 
 def initial_choice():
+    """
+    Prompts the user to make an initial choice to either prepare
+    the ship or review mission details.
+    """
     clear_screen()
     while True:
         print(format_output(
@@ -60,6 +74,10 @@ def initial_choice():
 
 
 def prepare_ship():
+    """
+    Handles the preparation of the ship for launch and proceeds
+    to the equipment malfunction scenario.
+    """
     clear_screen()
     print(format_output(prepare_ship_story()))
     health.reduce_health(1)
@@ -70,6 +88,10 @@ def prepare_ship():
 
 
 def review_mission():
+    """
+    Displays the mission review details and proceeds to the
+    equipment malfunction scenario.
+    """
     clear_screen()
     print(format_output(review_mission_story()))
     pause()
@@ -77,6 +99,11 @@ def review_mission():
 
 
 def equipment_malfunction():
+    """
+    Presents the equipment malfunction scenario, allowing the user
+    to choose between repairing the system with resources or
+    attempting a manual fix.
+    """
     global resources  # Declare global variable usage
     clear_screen()
     print(format_output(equipment_malfunction_story()))
@@ -111,6 +138,10 @@ def equipment_malfunction():
 
 
 def mid_journey_check():
+    """
+    Allows the user to make decisions about the ship's shields
+    and course in response to a mid-journey anomaly.
+    """
     clear_screen()
     print(format_output(mid_journey_check_story()))
     while True:
@@ -146,6 +177,10 @@ def mid_journey_check():
 
 
 def critical_meltdown():
+    """
+    Deals with a critical reactor meltdown scenario, giving the user
+    options to stabilize the reactor or evacuate.
+    """
     clear_screen()
     print(format_output(critical_meltdown_story()))
     print(format_output("1. Attempt to stabilize the reactor"))
@@ -174,6 +209,10 @@ def critical_meltdown():
 
 
 def advanced_medical_facility():
+    """
+    Provides options to integrate with or leave an advanced medical
+    facility, affecting the ship's health.
+    """
     clear_screen()
     print(format_output(advanced_medical_facility_story()))
     print(format_output("1. Integrate the health systems with your ship"))
@@ -198,6 +237,10 @@ def advanced_medical_facility():
 
 
 def alien_encounter():
+    """
+    Allows the user to interact with an alien vessel, choosing between
+    peaceful communication or preparing defenses.
+    """
     clear_screen()
     print(format_output(alien_encounter_story()))
     while True:
@@ -226,6 +269,10 @@ def alien_encounter():
 
 
 def resource_dilemma():
+    """
+    Presents a resource management dilemma, where the user decides
+    between strict rationing or maintaining current consumption.
+    """
     clear_screen()
     print(format_output(resource_dilemma_story()))
     while True:
@@ -252,6 +299,10 @@ def resource_dilemma():
 
 
 def unexpected_visitor():
+    """
+    Deals with an unexpected visitor scenario, giving options to
+    help the visitor, ignore them, or wait for command instructions.
+    """
     global resources  # Declare global variable usage
     clear_screen()
     print(format_output(unexpected_visitor_story()))
@@ -291,6 +342,11 @@ def unexpected_visitor():
 
 
 def emergency_repair():
+    """
+    Handles an emergency repair situation, allowing the user to
+    choose between using resources for a quick fix or attempting
+    a manual repair.
+    """
     global resources  # Declare global variable usage
     clear_screen()
     print(format_output(emergency_repair_story()))
@@ -324,6 +380,10 @@ def emergency_repair():
 
 
 def resource_discovery():
+    """
+    Deals with discovering new resources, allowing the user to
+    either integrate them into the ship or save them for emergencies.
+    """
     global resources  # Declare global variable usage
     clear_screen()
     print(format_output(resource_discovery_story()))
@@ -353,6 +413,10 @@ def resource_discovery():
 
 
 def space_station_rescue():
+    """
+    Handles the decision to rescue a space station crew or continue
+    to Titan V without intervention.
+    """
     clear_screen()
     print(format_output(space_station_rescue_story()))
     while True:
@@ -385,6 +449,11 @@ def space_station_rescue():
 
 
 def unexpected_upgrade():
+    """
+    Handles the situation of receiving an unexpected upgrade, allowing
+    the user to either apply the upgrade immediately or save it for
+    later use.
+    """
     clear_screen()
     print(format_output(unexpected_upgrade_story()))
     while True:
@@ -411,6 +480,10 @@ def unexpected_upgrade():
 
 
 def final_challenge():
+    """
+    Presents the final challenge of navigating through an asteroid field
+    or finding an alternate route.
+    """
     clear_screen()
     print(format_output(final_challenge_story()))
     print(format_output("1. Navigate through the asteroid field"))
@@ -435,6 +508,9 @@ def final_challenge():
 
 
 def end_game():
+    """
+    Ends the game and displays the final message.
+    """
     clear_screen()
     print(format_output(
         "Congratulations! You've completed your mission to Titan V.\n"
